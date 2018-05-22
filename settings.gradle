@@ -1,2 +1,3 @@
 rootProject.name = 'multi-module-framework-build'
+include 'spring-boot-jpa-data'
 
