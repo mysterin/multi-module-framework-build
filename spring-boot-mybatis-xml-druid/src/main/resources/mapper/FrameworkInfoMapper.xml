@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xxbb.dao.FrameworkInfoDao">
+    <resultMap id="frameworkInfo" type="com.xxbb.model.FrameworkInfo">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="mvc_framework" property="mvcFramework" jdbcType="VARCHAR" />
+        <result column="database" property="database" jdbcType="VARCHAR" />
+        <result column="datasource" property="datasource" jdbcType="VARCHAR" />
+        <result column="data_framework" property="dataFramework" jdbcType="VARCHAR" />
+        <result column="build_tool" property="buildTool" jdbcType="VARCHAR" />
+        <result column="logger" property="logger" jdbcType="VARCHAR" />
+        <result column="distributed" property="distributed" jdbcType="VARCHAR" />
+        <result column="message_queue" property="messageQueue" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findById" resultMap="frameworkInfo">
+        select id, mvc_framework, `database`, datasource, data_framework,
+        build_tool, logger, distributed, message_queue
+        from framework_info where id=#{id}
+    </select>
+</mapper>

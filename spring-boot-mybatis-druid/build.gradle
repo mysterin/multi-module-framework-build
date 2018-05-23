@@ -1,0 +1,31 @@
+plugins {
+    // spring-boot 的 gradle 插件, 单独一个不起作用, 需要搭配下面 java 和 dependency-management 插件共同使用
+    id "org.springframework.boot" version "2.0.0.RELEASE"
+}
+group 'com.xxbb'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+    compile"org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2"
+
+    // 使用 druid 作为数据连接池
+    compile 'com.alibaba:druid-spring-boot-starter:1.1.9'
+}
+
+// 在本文件所在目录使用 gradle bootrun 命令启动
+// 浏览器通过 localhost:9090/getFrameworkInfo 访问控制器
+bootRun {
+    args += ['--server.port=9090']
+}

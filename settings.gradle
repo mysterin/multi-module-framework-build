@@ -1,3 +1,5 @@
 rootProject.name = 'multi-module-framework-build'
 include 'spring-boot-jpa-data'
+include 'spring-boot-mybatis-druid'
+include 'spring-boot-mybatis-xml-druid'
 
